@@ -175,9 +175,12 @@ class MyApp extends StatelessWidget {
                 ),
                 child: Row (
                   children: [
-                    Text(
-                      '덕부름 이용 방법',
-                      style: TextStyle(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '덕부름 이용 방법',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     )
                   ],
                 )
