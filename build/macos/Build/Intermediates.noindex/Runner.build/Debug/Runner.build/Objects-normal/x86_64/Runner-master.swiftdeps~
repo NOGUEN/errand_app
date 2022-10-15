@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
+options: "ec79aa820a784268adad58de08764e5456863d0d4d65d60c3d163256925603dc"
+build_start_time: [1665461107, 798169136]
+build_end_time: [1665461107, 925148010]
+inputs:
+  "/Users/noguen/errand_app/macos/Flutter/GeneratedPluginRegistrant.swift": !private [1665461075, 134698867]
+  "/Users/noguen/errand_app/macos/Runner/AppDelegate.swift": !private [1663169498, 0]
+  "/Users/noguen/errand_app/macos/Runner/MainFlutterWindow.swift": !private [1663169498, 0]
