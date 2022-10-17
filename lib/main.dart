@@ -55,29 +55,90 @@ class MyApp extends StatelessWidget {
         title: 'errand app',
         home: Scaffold(
             appBar: AppBar(
+              centerTitle: false,
               elevation: 0,
               toolbarHeight: 53,
               titleSpacing: 24,
-              title: Text('덕부름',
-                  style: TextStyle(
-                    color: Color.fromARGB(6, 0, 0, 0),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  )),
               backgroundColor: Colors.white,
+              title: Text(
+                '덕부름',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
             body: Container(
                 padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
-                color: Color.fromARGB(255, 255, 0, 0),
+                color: Colors.white,
                 child: ListView(
                   children: [
-                    Container(/*공지 덕부름에 새로운 기능이 추가어쩌구*/),
-                    SizedBox(/*간격*/),
-                    Container(/*세븐틴 포토*/),
+                    Container(
+                        padding: EdgeInsets.fromLTRB(14, 10, 14, 10),
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                          color: Color.fromARGB(255, 248, 248, 248),
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              '공지',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w800, fontSize: 13),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              '덕부름에 새로운 기능이 추가됐어요.',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 13),
+                            )
+                          ],
+                        )),
+                    SizedBox(height: 20),
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                          child: Image.asset(
+                            'assets/seventeen.png',
+                            height: 172.0,
+                          ),
+                        ),
+                        Container(
+                          height: 172,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              gradient: LinearGradient(
+                                  begin: FractionalOffset.topCenter,
+                                  end: FractionalOffset.bottomCenter,
+                                  colors: [
+                                    Color(0x87878799).withOpacity(0.6),
+                                    Color(0x23262800).withOpacity(0.0),
+                                    Colors.transparent,
+                                  ],
+                                  stops: [
+                                    0.0,
+                                    1.0,
+                                    0.2,
+                                  ])),
+                        ),
+                        Column(
+                          children: [
+                            Text('EVENT'),
+                            Text('SEVENTEEN Photo'),
+                          ],
+                        )
+                      ],
+                    )
+                    /*
                     SizedBox(/*간격*/),
                     Container(/*심부름 신청하러 가기*/),
                     SizedBox(/*간격*/),
                     Container(/*최근 등록한 심부름*/),
+                    SizedBox(/*간격*/),
+                    ListView(/*최근 등록한 심부름 리스트*/),
+                    SizedBox(/*간격*/),
+                    Container(/*팁 덕부름 이용 방법*/)*/
                   ],
                 ))));
   }
