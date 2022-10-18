@@ -9,40 +9,118 @@ class RecentErrand extends StatelessWidget {
   final String location;
   final String head;
   final String date;
-  RecentErrand(this.pay, this.location, this.head, this.date, {super.key});
+  final int bgColor;
+  final int textColor;
+  final bool visible;
+  RecentErrand(this.pay, this.location, this.head, this.date, this.bgColor,
+      this.textColor, this.visible,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 100,
-        height: 100,
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
+      child: Container(
+        width: 139,
+        height: 144,
+        padding: EdgeInsets.fromLTRB(14, 14, 16, 18),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(14.0)),
+            border: Border.all(
+              width: 1,
+              color: Color(0xFFF1F1F1),
+            )),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                color: Colors.green,
-                width: 70,
-                height: 70,
+                padding: EdgeInsets.fromLTRB(6, 5, 6, 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  color: Color(bgColor),
+                ),
                 child: Text(
                   pay,
+                  style: TextStyle(
+                    fontSize: 11.0,
+                    height: 13.0 / 11.0,
+                    fontWeight: FontWeight.w800,
+                    color: Color(textColor),
+                  ),
                 )),
+            SizedBox(
+              height: 10,
+            ),
             Text(
               location,
+              style: TextStyle(
+                fontSize: 14.0,
+                height: 17.0 / 14.0,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF000000),
+              ),
+            ),
+            SizedBox(
+              height: 8,
             ),
             Row(
               children: [
-                Text(head),
                 Container(
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  child: Text('+2'),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                      color: Color(0xFFF8F8F8),
+                    ),
+                    child: Text(
+                      head,
+                      style: TextStyle(
+                        fontSize: 11.0,
+                        height: 13.0 / 11.0,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF3C88FA),
+                      ),
+                    )),
+                Visibility(
+                  // ignore: sort_child_properties_last
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(4, 6, 4, 6),
+                    width: 26.0,
+                    height: 26.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(13.0)),
+                      color: Color(0xFF3C88FA),
+                    ),
+                    child: Text(
+                      '+2',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        height: 14.0 / 12.0,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                  visible: visible,
                 )
               ],
             ),
-            Text(date)
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              date,
+              style: TextStyle(
+                fontSize: 12.0,
+                height: 14.0 / 12.0,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFFB1B1B4),
+              ),
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -207,14 +285,131 @@ class MyApp extends StatelessWidget {
                     SizedBox(
                       height: 20.0,
                     ),
-                    Container(/*심부름 신청하러 가기*/),
-                    /*
-                    SizedBox(/*간격*/),
-                    Container(/*최근 등록한 심부름*/),
-                    SizedBox(/*간격*/),
-                    ListView(/*최근 등록한 심부름 리스트*/),
-                    SizedBox(/*간격*/),
-                    Container(/*팁 덕부름 이용 방법*/)*/
+                    Container(
+                      height: 80,
+                      padding: EdgeInsets.fromLTRB(18, 20, 24, 19),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        color: Color(0xFF1F1F21),
+                      ),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '심부름 신청하러 가기',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    height: 19.0 / 16.0,
+                                    fontWeight: FontWeight.w800,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                                Text(
+                                  '덕질 관련 심부름을 신청해 보세요!',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    height: 17.0 / 14.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xffffffff),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0)),
+                                  color: Color(0xFF3E3E40),
+                                ),
+                                child: Icon(
+                                  Icons.arrow_forward_rounded,
+                                  color: Colors.white,
+                                ))
+                          ]),
+                    ),
+                    SizedBox(
+                      height: 40.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '최근 등록된 심부름',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            height: 19.0 / 16.0,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xFF000000),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '더보기',
+                              style: TextStyle(
+                                fontSize: 13.0,
+                                height: 16.0 / 13.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFFB1B1B4),
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              size: 13.0,
+                              color: Color(0xFFB1B1B4),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 14.0,
+                    ),
+                    SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            RecentErrand('시급 1만원', '서울 광진구', '팬싸 대리응모',
+                                '8/6 오후 8:00', 0xFFE0F4F8, 0xFF04BCD6, true),
+                            RecentErrand('시급 1만원', '서울 광진구', '행사 대리줄서기',
+                                '8/6 오후 8:00', 0xFFF0E9FF, 0xFF8F5BFF, false),
+                          ],
+                        )),
+                    SizedBox(
+                      height: 29,
+                    ),
+                    Container(
+                      height: 86.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        color: Color(0xFFF7FFE7),
+                      ),
+                      child: Row(children: [
+                        Container(),
+                        Column(
+                          children: [
+                            Text(
+                              '덕부름 이용 방법',
+                              style: TextStyle(),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '덕부름의 이용 방법을 알아보세요!',
+                                  style: TextStyle(),
+                                ),
+                                Icon(Icons.arrow_forward_ios),
+                              ],
+                            )
+                          ],
+                        )
+                      ]),
+                    )
                   ],
                 ))));
   }
