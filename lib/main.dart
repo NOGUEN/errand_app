@@ -4,112 +4,509 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class RecentErrand extends StatelessWidget {
+  final String pay;
+  final String location;
+  final String head;
+  final String date;
+  final int bgColor;
+  final int textColor;
+  final bool visible;
+  RecentErrand(this.pay, this.location, this.head, this.date, this.bgColor,
+      this.textColor, this.visible,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 0, 12, 0),
+      child: Container(
+        width: 139,
+        height: 144,
+        padding: EdgeInsets.fromLTRB(14, 14, 16, 18),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(14.0)),
+            border: Border.all(
+              width: 1,
+              color: Color(0xFFF1F1F1),
+            )),
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.fromLTRB(6, 5, 6, 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  color: Color(bgColor),
+                ),
+                child: Text(
+                  pay,
+                  style: TextStyle(
+                    fontSize: 11.0,
+                    height: 13.0 / 11.0,
+                    fontWeight: FontWeight.w800,
+                    color: Color(textColor),
+                  ),
+                )),
+            SizedBox(
+              height: 10,
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              location,
+              style: TextStyle(
+                fontSize: 14.0,
+                height: 17.0 / 14.0,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF000000),
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                      color: Color(0xFFF8F8F8),
+                    ),
+                    child: Text(
+                      head,
+                      style: TextStyle(
+                        fontSize: 11.0,
+                        height: 13.0 / 11.0,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF3C88FA),
+                      ),
+                    )),
+                Visibility(
+                  // ignore: sort_child_properties_last
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(4, 6, 4, 6),
+                    width: 26.0,
+                    height: 26.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(13.0)),
+                      color: Color(0xFF3C88FA),
+                    ),
+                    child: Text(
+                      '+2',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        height: 14.0 / 12.0,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                  visible: visible,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              date,
+              style: TextStyle(
+                fontSize: 12.0,
+                height: 14.0 / 12.0,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFFB1B1B4),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'errand app',
+        home: DefaultTabController(
+            length: 3,
+            child: Scaffold(
+                appBar: AppBar(
+                  centerTitle: false,
+                  elevation: 0,
+                  toolbarHeight: 53,
+                  titleSpacing: 24,
+                  backgroundColor: Colors.white,
+                  title: Text(
+                    '덕부름',
+                    style: TextStyle(
+                        fontSize: 24.0,
+                        height: 29.0 / 24.0,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'ChangwonDangamAsac',
+                        color: Color(
+                          0xFF3C88FA,
+                        )),
+                  ),
+                ),
+                body: Container(
+                    padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
+                    color: Colors.white,
+                    child: ListView(
+                      children: [
+                        Container(
+                            padding: EdgeInsets.fromLTRB(14, 10, 14, 10),
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                              color: Color.fromARGB(255, 248, 248, 248),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '공지',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 13),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  '덕부름에 새로운 기능이 추가됐어요.',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 13),
+                                )
+                              ],
+                            )),
+                        SizedBox(height: 20),
+                        Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12.0)),
+                              child: Image.asset(
+                                'assets/seventeen.png',
+                                height: 172.0,
+                              ),
+                            ),
+                            Container(
+                              height: 172.0,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12.0)),
+                                  gradient: LinearGradient(
+                                      begin: FractionalOffset.topCenter,
+                                      end: FractionalOffset.bottomCenter,
+                                      colors: [
+                                        Color(0x87878799).withOpacity(0.6),
+                                        Color(0x23262800).withOpacity(0.0),
+                                        Colors.transparent,
+                                      ],
+                                      stops: [
+                                        0.0,
+                                        1.0,
+                                        0.2,
+                                      ])),
+                            ),
+                            Container(
+                                padding: EdgeInsets.fromLTRB(20, 32, 0, 63),
+                                width: double.infinity,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'EVENT',
+                                      style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w300,
+                                          color: Color(0xffffffff)),
+                                    ),
+                                    Text('SEVENTEEN Photo',
+                                        style: TextStyle(
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w800,
+                                          color: Color(0xffffffff),
+                                        )),
+                                    Text(
+                                      '지금 이벤트 참가하고 세븐틴 굿즈 받기',
+                                      style: TextStyle(
+                                        height: 2.0,
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xffffffff),
+                                      ),
+                                    )
+                                  ],
+                                )),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(24, 141, 256, 24),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 7.0,
+                                    height: 7.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(3.5)),
+                                        color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    width: 9.0,
+                                  ),
+                                  Container(
+                                    width: 7.0,
+                                    height: 7.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(3.5)),
+                                        color:
+                                            Color.fromARGB(122, 255, 255, 255)),
+                                  ),
+                                  SizedBox(
+                                    width: 9.0,
+                                  ),
+                                  Container(
+                                    width: 7.0,
+                                    height: 7.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(3.5)),
+                                        color:
+                                            Color.fromARGB(122, 255, 255, 255)),
+                                  ),
+                                  SizedBox(
+                                    width: 9.0,
+                                  ),
+                                  Container(
+                                    width: 7.0,
+                                    height: 7.0,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(3.5)),
+                                        color:
+                                            Color.fromARGB(122, 255, 255, 255)),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Container(
+                          height: 80,
+                          padding: EdgeInsets.fromLTRB(18, 20, 24, 19),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12.0)),
+                            color: Color(0xFF1F1F21),
+                          ),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '심부름 신청하러 가기',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        height: 19.0 / 16.0,
+                                        fontWeight: FontWeight.w800,
+                                        color: Color(0xffffffff),
+                                      ),
+                                    ),
+                                    Text(
+                                      '덕질 관련 심부름을 신청해 보세요!',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        height: 17.0 / 14.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xffffffff),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0)),
+                                      color: Color(0xFF3E3E40),
+                                    ),
+                                    child: Icon(
+                                      Icons.arrow_forward_rounded,
+                                      color: Colors.white,
+                                    ))
+                              ]),
+                        ),
+                        SizedBox(
+                          height: 40.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '최근 등록된 심부름',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                height: 19.0 / 16.0,
+                                fontWeight: FontWeight.w800,
+                                color: Color(0xFF000000),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '더보기',
+                                  style: TextStyle(
+                                    fontSize: 13.0,
+                                    height: 16.0 / 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFFB1B1B4),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 13.0,
+                                  color: Color(0xFFB1B1B4),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 14.0,
+                        ),
+                        SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                RecentErrand(
+                                    '시급 1만원',
+                                    '서울 광진구',
+                                    '팬싸 대리응모',
+                                    '8/6 오후 8:00',
+                                    0xFFE0F4F8,
+                                    0xFF04BCD6,
+                                    true),
+                                RecentErrand(
+                                    '시급 1만원',
+                                    '서울 광진구',
+                                    '행사 대리줄서기',
+                                    '8/6 오후 8:00',
+                                    0xFFF0E9FF,
+                                    0xFF8F5BFF,
+                                    false),
+                              ],
+                            )),
+                        SizedBox(
+                          height: 29,
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(19, 19, 0, 19),
+                          height: 86.0,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(12.0)),
+                            color: Color(0xFFF7FFE7),
+                          ),
+                          child: Row(children: [
+                            Container(
+                                padding: EdgeInsets.fromLTRB(1, 12, 1, 12),
+                                alignment: Alignment.center,
+                                width: 48.0,
+                                height: 48.0,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(24.0)),
+                                  color: Color(0xFFDBFFAC),
+                                ),
+                                child: Text(
+                                  'Tip!',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    height: 24.0 / 16.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                )),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '덕부름 이용 방법',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    height: 19.0 / 16.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      '덕부름의 이용 방법을 알아보세요!',
+                                      style: TextStyle(
+                                        fontSize: 13.0,
+                                        height: 15.0 / 13.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color.fromRGBO(
+                                            0x3E, 0x3E, 0x40, 0.8),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 13.0,
+                                      color:
+                                          Color.fromRGBO(0x3E, 0x3E, 0x40, 0.8),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                          ]),
+                        )
+                      ],
+                    )),
+                bottomNavigationBar: SizedBox(
+                  height: 74.0,
+                  child: TabBar(tabs: [
+                    Tab(
+                      icon: Icon(
+                        Icons.home,
+                        size: 22.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Tab(
+                      icon: Icon(
+                        Icons.chat,
+                        size: 22.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Tab(
+                      icon: Icon(
+                        Icons.people,
+                        size: 22.0,
+                        color: Colors.black,
+                      ),
+                    )
+                  ]),
+                ))));
   }
 }
