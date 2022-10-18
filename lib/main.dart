@@ -140,7 +140,14 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
               title: Text(
                 '덕부름',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    fontSize: 24.0,
+                    height: 29.0 / 24.0,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'ChangwonDangamAsac',
+                    color: Color(
+                      0xFF3C88FA,
+                    )),
               ),
             ),
             body: Container(
