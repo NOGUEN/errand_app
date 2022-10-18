@@ -384,26 +384,65 @@ class MyApp extends StatelessWidget {
                       height: 29,
                     ),
                     Container(
+                      padding: EdgeInsets.fromLTRB(19, 19, 0, 19),
                       height: 86.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(12.0)),
                         color: Color(0xFFF7FFE7),
                       ),
                       child: Row(children: [
-                        Container(),
+                        Container(
+                            padding: EdgeInsets.fromLTRB(1, 12, 1, 12),
+                            alignment: Alignment.center,
+                            width: 48.0,
+                            height: 48.0,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(24.0)),
+                              color: Color(0xFFDBFFAC),
+                            ),
+                            child: Text(
+                              'Tip!',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                height: 24.0 / 16.0,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            )),
+                        SizedBox(
+                          width: 16,
+                        ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               '덕부름 이용 방법',
-                              style: TextStyle(),
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                height: 19.0 / 16.0,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
                             ),
                             Row(
                               children: [
                                 Text(
                                   '덕부름의 이용 방법을 알아보세요!',
-                                  style: TextStyle(),
+                                  style: TextStyle(
+                                    fontSize: 13.0,
+                                    height: 15.0 / 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Color.fromRGBO(0x3E, 0x3E, 0x40, 0.8),
+                                  ),
                                 ),
-                                Icon(Icons.arrow_forward_ios),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 13.0,
+                                  color: Color.fromRGBO(0x3E, 0x3E, 0x40, 0.8),
+                                ),
                               ],
                             )
                           ],
