@@ -105,9 +105,11 @@ class MyApp extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 172,
+                          height: 172.0,
                           decoration: BoxDecoration(
                               color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12.0)),
                               gradient: LinearGradient(
                                   begin: FractionalOffset.topCenter,
                                   end: FractionalOffset.bottomCenter,
@@ -122,17 +124,91 @@ class MyApp extends StatelessWidget {
                                     0.2,
                                   ])),
                         ),
-                        Column(
-                          children: [
-                            Text('EVENT'),
-                            Text('SEVENTEEN Photo'),
-                          ],
+                        Container(
+                            padding: EdgeInsets.fromLTRB(20, 32, 0, 63),
+                            width: double.infinity,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'EVENT',
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color(0xffffffff)),
+                                ),
+                                Text('SEVENTEEN Photo',
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.w800,
+                                      color: Color(0xffffffff),
+                                    )),
+                                Text(
+                                  '지금 이벤트 참가하고 세븐틴 굿즈 받기',
+                                  style: TextStyle(
+                                    height: 2.0,
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xffffffff),
+                                  ),
+                                )
+                              ],
+                            )),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(24, 141, 256, 24),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 7.0,
+                                height: 7.0,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(3.5)),
+                                    color: Colors.white),
+                              ),
+                              SizedBox(
+                                width: 9.0,
+                              ),
+                              Container(
+                                width: 7.0,
+                                height: 7.0,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(3.5)),
+                                    color: Color.fromARGB(122, 255, 255, 255)),
+                              ),
+                              SizedBox(
+                                width: 9.0,
+                              ),
+                              Container(
+                                width: 7.0,
+                                height: 7.0,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(3.5)),
+                                    color: Color.fromARGB(122, 255, 255, 255)),
+                              ),
+                              SizedBox(
+                                width: 9.0,
+                              ),
+                              Container(
+                                width: 7.0,
+                                height: 7.0,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(3.5)),
+                                    color: Color.fromARGB(122, 255, 255, 255)),
+                              ),
+                            ],
+                          ),
                         )
                       ],
-                    )
-                    /*
-                    SizedBox(/*간격*/),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     Container(/*심부름 신청하러 가기*/),
+                    /*
                     SizedBox(/*간격*/),
                     Container(/*최근 등록한 심부름*/),
                     SizedBox(/*간격*/),
